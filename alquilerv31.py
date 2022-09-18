@@ -1,4 +1,3 @@
-from ast import Delete
 from tkinter import *
 from tkinter import ttk
 from tkinter.messagebox import *
@@ -13,7 +12,6 @@ import re
 from tkinter import ttk
 import locale
 
-# borrar
 
 os.system("cls")
 
