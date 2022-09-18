@@ -12,7 +12,6 @@ import re
 from tkinter import ttk
 import locale
 
-#wakatime
 
 os.system("cls")
 
