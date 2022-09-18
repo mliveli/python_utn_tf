@@ -42,7 +42,7 @@ def test_disponibilidad():
     dias = (f_fin - f_inicio).days
     f_inicio = f_inicio - timedelta(days=1)
 
-    for i in range(dias + 1):
+    for _ in range(dias + 1):
         f_inicio = f_inicio + timedelta(days=1)
 
         cursor = con.execute("select vehiculo, inicio, fin from reservas")
@@ -359,7 +359,9 @@ def test_fechas():
 
 
 def test_telefono(tel):
-    patron = re.compile(r"([+]?[0-9]{7,20})")
+    patron = re.compile(
+        r"([+]?\d{7,20})"
+    )  # obliga telefono y permite posterior descripcion. opcional "+" antes del telefono.
 
     if patron.match(tel) is None:
         messagebox.showinfo(
