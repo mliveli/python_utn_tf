@@ -61,10 +61,10 @@ def test_disponibilidad():
                 for posauto in range(len(lista_de_autos)):
                     if lista_de_autos[posauto] == fila[0]:
                         pos = lista_de_autos[posauto]
-                if not (pos == ""):
+                if pos != "":
                     nueva = list()
                     for c in lista_de_autos:
-                        if not c == pos:
+                        if c != pos:
                             nueva.append(c)
                     lista_de_autos = tuple(nueva)
 
@@ -121,7 +121,7 @@ def f_boton_reservar(con, tree):
     # ************ carga de treeview *******************
     cursor = con.cursor()
     cursor.execute("SELECT * FROM reservas")
-    for fila in cursor:
+    for _ in cursor:
         ultimo_id = ultimo_id + 1
 
     inicializar_treview(tree)
@@ -137,7 +137,7 @@ def f_boton_reservar(con, tree):
     nueva = list()
     for c in variable_autos["values"]:
 
-        if not (c == variable_autos.get()):
+        if c != variable_autos.get():
             nueva.append(c)
 
     tuple(nueva)
@@ -201,7 +201,7 @@ def f_boton_modificar(tree):
 # Funcion del boton Salir
 # ****************************************************************
 def f_boton_salir():
-    if askyesno("Salir", "Desea Salir?"):
+    if messagebox.askyesno("Salir", "Desea Salir?"):
         root.destroy()
 
 
@@ -359,7 +359,7 @@ def test_fechas():
 
 
 def test_telefono(tel):
-    patron = re.compile(r"([+]?\b[0-9][0-9]{7,20}\b)")
+    patron = re.compile(r"([+]?[0-9]{7,20})")
 
     if patron.match(tel) is None:
         messagebox.showinfo(
@@ -383,7 +383,7 @@ def test_mail(mail):
 
 
 def fecha_inicio_seleccionada(*args):
-    if not (len(fecha_inicio.get()) == 0):
+    if len(fecha_inicio.get()) != 0:
         fecha_fin.delete(0, 8)
         fecha_fin.insert(0, fecha_inicio.get())
         inicializar_calendario()
@@ -403,7 +403,7 @@ def fecha_inicio_seleccionada(*args):
 def fecha_fin_seleccionada(*args):
     variable_autos["value"] = lista_de_autos
     variable_autos.set("Vehiculos")
-    if not (len(fecha_fin.get()) == 0):
+    if len(fecha_fin.get()) != 0:
         f = fecha_inicio.get().split("/")
         day_inicio = date(int("20" + f[2]), int(f[1]), int(f[0]))
         f = fecha_fin.get().split("/")
@@ -411,7 +411,7 @@ def fecha_fin_seleccionada(*args):
 
         dias = (day_fin - day_inicio).days
 
-        for x in range(dias):
+        for _ in range(dias):
 
             day_inicio = day_inicio + timedelta(days=1)
             salto = cal.get_calevents(day_inicio)
