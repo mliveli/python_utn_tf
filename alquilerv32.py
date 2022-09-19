@@ -7,6 +7,7 @@ import os
 import re
 import locale
 
+#prueba
 
 os.system("cls")
 reserva = []
