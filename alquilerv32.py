@@ -9,7 +9,6 @@ import locale
 
 
 os.system("cls")
-
 reserva = []
 id_datos = 0
 lista_de_autos = [
