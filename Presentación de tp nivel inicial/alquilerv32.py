@@ -7,8 +7,6 @@ import os
 import re
 import locale
 
-#F2 
-
 os.system("cls")
 reserva = []
 id_datos = 0
